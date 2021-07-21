@@ -57,3 +57,12 @@ def makeFilePath (dirName):
     if not os.path.isdir(dirName):
         os.mkdir(dirName) #make directory if it doesn't exist
         print("Created Directory " + dirName)
+
+#check if a file exists or not
+from pathlib import Path
+
+filePath = "path/to/file"
+if Path(filePath).is_file(): 
+  print("File Found")
+ else: 
+  print("File Not Found")
