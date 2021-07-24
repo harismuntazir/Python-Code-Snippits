@@ -13,7 +13,7 @@ def makeFileName(idx):
  
 #make link
 def makeLink (fileName):
-    return "https://www.jk.gov.in/jkeservices/services/prefillFormForSBS?serviceCode=ORP&updateStatus=no&applicationId=&cznId=" + fileName  
+    return "https://example.com/profile.php?id=" + fileName  
  
 #get data from server
 def getData (link):
@@ -32,7 +32,7 @@ def getLimit(upperLimit):
     print(upperLimit)
     data = getData(makeLink(makeFileName(upperLimit)))
     if upperLimit < 0:
-      break
+      return -1
     if len(data.content) > 190000:
       if round == 0:
         upperLimit += 10000
@@ -63,7 +63,8 @@ def getLimit(upperLimit):
         upperLimit -= 5
       if isClose == 4:
         upperLimit -= 1
-        lost = False
+        lost = False     
+        print ("Upper Limit Found At: " + str(upperLimit))
         return upperLimit
       
 #the use like this
