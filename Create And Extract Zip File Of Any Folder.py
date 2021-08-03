@@ -17,3 +17,9 @@ folderNameToZip = "MyFolder"
 zipf = zipfile.ZipFile(zipfileName, 'w', zipfile.ZIP_DEFLATED)
 zipdir(folderNameToZip, zipf)
 zipf.close()
+
+
+#now to extract zip file do this
+import zipfile
+with zipfile.ZipFile('path-to-zip-file', 'r') as zip_ref:
+    zip_ref.extractall('location-to-extract')
